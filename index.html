@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Ana & Carlos | Our Wedding</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wedding-gold': '#D4AF37',
+                        'wedding-dark': '#0f0f0f',
+                        'wedding-charcoal': '#1a1a1a',
+                        'wedding-cream': '#f4f4f4',
+                    },
+                    fontFamily: {
+                        'cinzel': ['Cinzel', 'serif'],
+                        'vibes': ['Great Vibes', 'cursive'],
+                        'lato': ['Lato', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-out',
+                        'fade-up': 'fadeUp 1s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-black text-wedding-cream overflow-hidden w-full h-full select-none touch-none">
+
+    <!-- Main App Container - Uses dynamic Viewport Height -->
+    <div id="app-container" class="relative w-full h-dvh overflow-hidden">
+
+        <!-- SECTION 0: NAME INPUT -->
+        <section id="name-section"
+            class="active-section absolute inset-0 z-30 flex flex-col items-center justify-center py-10 px-6 transition-all duration-1000 ease-in-out bg-wedding-charcoal">
+            
+            <div class="z-10 w-full flex flex-col items-center max-w-sm animate-fade-up">
+                <p class="font-lato text-sm tracking-[0.2em] uppercase text-wedding-gold/80 mb-8 text-center">
+                    Please enter your name
+                </p>
+                <input type="text" id="guest-name-input" 
+                    class="w-full bg-transparent border-b-2 border-wedding-gold/50 text-white font-cinzel text-2xl text-center py-2 focus:outline-none focus:border-wedding-gold transition-colors mb-12 placeholder-wedding-cream/30"
+                    placeholder="Your Name" autocomplete="off" spellcheck="false">
+                
+                <button id="name-submit-btn" 
+                    class="w-full relative px-6 py-4 bg-transparent border border-wedding-gold/60 text-wedding-gold font-cinzel tracking-widest uppercase transition-all duration-300 hover:bg-wedding-gold hover:text-black hover:border-transparent active:scale-95 group">
+                    <span class="relative z-10 font-bold group-hover:drop-shadow-none drop-shadow-[0_0_5px_rgba(0,0,0,1)]">
+                        Continue
+                    </span>
+                    <div class="absolute inset-0 bg-wedding-gold/10 blur-md rounded-lg -z-10"></div>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 1: LANDING PAGE (Mobile First Redesign) -->
+        <section id="landing-section"
+            class="absolute inset-0 z-20 flex flex-col items-center justify-between py-10 px-6 transition-all duration-1000 ease-in-out">
+            
+            <!-- Fullscreen Photo Background -->
+            <div class="absolute inset-0 z-0 bg-[url('assets/images/hero.png')] bg-cover bg-center"></div>
+            
+            <!-- Solid Gradient Overlay (Improves Text Readability, Replaces Glassmorphism) -->
+            <div class="absolute inset-0 z-0 bg-gradient-to-b from-black/80 via-black/40 to-black/95"></div>
+
+
+
+            <!-- Top: Names & Header -->
+            <div class="z-10 w-full flex flex-col items-center mt-4 sm:mt-10 animate-fade-in">
+                <p class="font-lato text-xs sm:text-sm tracking-[0.4em] uppercase text-wedding-gold/70 mb-4 animate-fade-up"
+                    style="animation-delay: 0.2s;">
+                    You're Invited to the Wedding of
+                </p>
+
+                <!-- Huge beautiful typography for names -->
+                <h1 class="font-vibes text-6xl sm:text-7xl md:text-8xl text-wedding-gold text-center leading-tight drop-shadow-[0_0_10px_rgba(212,175,55,0.3)] animate-fade-up"
+                    style="animation-delay: 0.4s;">
+                    Ana<br><span class="text-4xl sm:text-5xl opacity-80">&</span><br>Carlos
+                </h1>
+            </div>
+
+            <!-- Middle: Date & Decor -->
+            <div class="z-10 flex flex-col items-center animate-fade-up" style="animation-delay: 0.6s;">
+                <div class="flex items-center gap-4 text-wedding-cream/90 font-cinzel text-lg sm:text-xl">
+                    <span class="h-[1px] w-8 bg-wedding-gold/60"></span>
+                    <span>OCT . 10 . 26</span>
+                    <span class="h-[1px] w-8 bg-wedding-gold/60"></span>
+                </div>
+                <p class="font-lato text-sm text-white/50 mt-2 italic">"An epic adventure begins"</p>
+            </div>
+
+            <!-- Bottom: Action -->
+            <div class="z-10 w-full max-w-xs mb-8 sm:mb-12 animate-fade-up" style="animation-delay: 0.8s;">
+                <button id="start-btn"
+                    class="w-full relative px-6 py-4 bg-transparent border border-wedding-gold/60 text-wedding-gold font-cinzel tracking-widest uppercase transition-all duration-300 hover:bg-wedding-gold hover:text-black hover:border-transparent active:scale-95 group">
+                    <span
+                        class="relative z-10 font-bold group-hover:drop-shadow-none drop-shadow-[0_0_5px_rgba(0,0,0,1)]">
+                        Begin Our Story
+                    </span>
+                    <!-- Glow effect behind button -->
+                    <div class="absolute inset-0 bg-wedding-gold/10 blur-md rounded-lg -z-10"></div>
+                </button>
+
+                <p
+                    class="mt-4 text-[10px] text-center text-gray-500 font-lato uppercase tracking-wider animate-pulse-slow">
+                    Tap to continue
+                </p>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: VIDEO INTRO (Safe Area Optimized) -->
+        <section id="video-section"
+            class="absolute inset-0 z-10 opacity-0 pointer-events-none transition-opacity duration-1000 bg-black">
+            <div class="relative w-full h-full flex items-center justify-center">
+                <!-- Video fills screen but maintains aspect ratio or covers depending on need -->
+                <!-- Use object-contain to ensure everything is visible on any screen ratio -->
+                <video id="intro-video" class="absolute top-0 left-0 w-full h-full object-contain bg-black" playsinline>
+                    <source src="assets/video/intro.mp4" type="video/mp4">
+                </video>
+
+                <!-- Simple gradient overlay for controls visibility -->
+                <div
+                    class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
+                </div>
+
+                <!-- Skip Button: Positioned safely -->
+                <button id="skip-btn"
+                    class="absolute bottom-[max(20px,env(safe-area-inset-bottom))] right-6 px-5 py-2 border border-white/30 bg-black/40 text-white/90 font-lato text-xs uppercase tracking-widest backdrop-blur-md rounded-sm hover:bg-white hover:text-black transition-all active:scale-95 pointer-events-auto z-50">
+                    Skip ▶
+                </button>
+            </div>
+        </section>
+
+
+        <!-- SECTION 3: GAME -->
+        <section id="game-section"
+            class="absolute inset-0 z-0 opacity-0 pointer-events-none transition-opacity duration-1000 bg-[#1a1a1a]">
+            <!-- Canvas fills entire container -->
+            <canvas id="gameCanvas" class="block w-full h-full touch-none"></canvas>
+
+            <!-- Game UI Overlay -->
+            <div id="ui-layer" class="absolute inset-0 pointer-events-none flex items-center justify-center">
+                
+                <!-- Welcome Popup Modal (Personalized) -->
+                <div id="game-welcome-popup" class="hidden flex-col items-center justify-center p-6 bg-wedding-charcoal/95 border-2 border-wedding-gold rounded text-center shadow-[0_0_20px_rgba(212,175,55,0.3)] max-w-[90%] sm:max-w-md pointer-events-auto z-40 transition-opacity duration-300">
+                    <h2 class="font-cinzel text-wedding-gold text-xl mb-4 tracking-wider">Mission</h2>
+                    <p id="game-welcome-text" class="font-lato text-white text-lg leading-relaxed mb-6">
+                        Hello Guest, please help Carlos reach Ana at the altar!
+                    </p>
+                    <button id="game-welcome-btn" class="px-8 py-3 bg-wedding-gold text-black font-cinzel font-bold uppercase tracking-widest hover:bg-white transition-colors">
+                        Okay
+                    </button>
+                </div>
+                <!-- Dialogue Box (Bottom Center) -->
+                <div id="game-dialogue"
+                    class="hidden absolute bottom-[max(80px,env(safe-area-inset-bottom))] left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-xl bg-wedding-charcoal/95 border border-wedding-gold/50 p-4 rounded shadow-2xl pointer-events-auto backdrop-blur-sm animate-fade-up">
+                    <p class="font-cinzel text-wedding-gold mb-1 text-xs uppercase tracking-wider opacity-80">Mission
+                    </p>
+                    <p class="font-lato text-white text-base leading-snug">Find your bride at the altar.</p>
+                </div>
+            </div>
+
+            <!-- MOBILE CONTROLS (Only visible on touch/mobile) -->
+            <!-- Using data-device attribute control in CSS or just media queries -->
+            <div id="mobile-controls" class="absolute inset-0 pointer-events-none z-50 hidden md:hidden">
+                <!-- Virtual Joystick -->
+                <div class="absolute bottom-[max(20px,env(safe-area-inset-bottom))] left-6 pointer-events-auto">
+                    <div id="joystick-base" class="relative w-32 h-32 bg-black/20 rounded-full backdrop-blur-[2px] border border-white/10 flex items-center justify-center touch-none">
+                        <!-- Decorative center crosshair -->
+                        <div class="absolute inset-0 m-auto w-1 h-4 bg-white/10 rounded-full"></div>
+                        <div class="absolute inset-0 m-auto w-4 h-1 bg-white/10 rounded-full"></div>
+                        
+                        <!-- Draggable stick -->
+                        <div id="joystick-stick" class="absolute w-14 h-14 bg-wedding-gold/60 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.4)] pointer-events-none transition-transform duration-75"></div>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="absolute bottom-[max(40px,env(safe-area-inset-bottom))] right-8 pointer-events-auto">
+                    <button id="action-btn"
+                        class="w-20 h-20 bg-wedding-gold/20 backdrop-blur-md rounded-full border border-wedding-gold/50 active:bg-wedding-gold/80 active:scale-95 transition-all shadow-[0_0_15px_rgba(212,175,55,0.2)] flex items-center justify-center">
+                        <span class="font-cinzel text-white text-sm font-bold tracking-wider">Action</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- VICTORY OVERLAY (shown when groom reaches bride) -->
+        <div id="victory-overlay" class="hidden absolute inset-0 z-50 flex flex-col items-center justify-center bg-black/90 transition-opacity duration-500">
+            <!-- Victory Image -->
+            <img src="assets/images/victory.png" alt="Ana & Carlos at the altar" 
+                class="w-full max-w-md max-h-[50vh] object-contain mb-6 rounded shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+            
+            <!-- Victory Text -->
+            <h2 class="font-vibes text-wedding-gold text-5xl sm:text-6xl mb-2 drop-shadow-[0_0_10px_rgba(212,175,55,0.3)]">Quest Complete!</h2>
+            <p class="font-lato text-wedding-cream/80 text-sm tracking-wider mb-8 uppercase">You brought them together</p>
+            
+            <!-- Button to Info Page -->
+            <button id="victory-continue-btn"
+                class="px-10 py-4 bg-transparent border-2 border-wedding-gold text-wedding-gold font-cinzel font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:bg-wedding-gold hover:text-black active:scale-95">
+                Open the Sacred Scroll
+            </button>
+        </div>
+
+
+        <!-- SKIP TO INVITATION BUTTON (visible on landing + game, not on name input) -->
+        <button id="skip-to-info-btn"
+            class="hidden absolute top-[max(12px,env(safe-area-inset-top))] right-4 z-[60] px-4 py-2 bg-transparent border border-wedding-gold/40 text-wedding-gold/70 font-lato text-[10px] uppercase tracking-[0.15em] transition-all duration-300 hover:bg-wedding-gold hover:text-black active:scale-95 pointer-events-auto">
+            Skip to Invitation ›
+        </button>
+
+
+        <!-- SECTION 4: INFO / INVITATION PAGE -->
+        <section id="info-section"
+            class="absolute inset-0 z-20 opacity-0 pointer-events-none transition-opacity duration-1000 bg-wedding-charcoal overflow-y-auto">
+            
+            <div class="min-h-full flex flex-col items-center px-6 py-12 sm:py-16">
+
+                <!-- Personalized Header -->
+                <div class="w-full max-w-lg text-center mb-10 animate-fade-up">
+                    <p class="font-lato text-xs tracking-[0.3em] uppercase text-wedding-gold/60 mb-4">A Special Invitation</p>
+                    <h1 class="font-vibes text-wedding-gold text-4xl sm:text-5xl mb-4 drop-shadow-[0_0_8px_rgba(212,175,55,0.2)]">
+                        <span id="info-guest-name">Dear Guest</span>,
+                    </h1>
+                    <p class="font-cinzel text-wedding-cream text-base sm:text-lg leading-relaxed">
+                        We choose you to be part of<br>our greatest adventure
+                    </p>
+                    <div class="w-16 h-[1px] bg-wedding-gold/40 mx-auto mt-6"></div>
+                </div>
+
+                <!-- Couple Names -->
+                <div class="w-full max-w-lg text-center mb-10 animate-fade-up" style="animation-delay: 0.2s;">
+                    <h2 class="font-vibes text-5xl sm:text-6xl text-wedding-cream leading-tight mb-2">
+                        Ana <span class="text-wedding-gold text-3xl">&</span> Carlos
+                    </h2>
+                    <p class="font-lato text-wedding-cream/50 text-sm italic">Request the honor of your presence</p>
+                </div>
+
+                <!-- Date Card -->
+                <div class="w-full max-w-lg text-center mb-10 py-6 border-y border-wedding-gold/20 animate-fade-up" style="animation-delay: 0.3s;">
+                    <p class="font-cinzel text-wedding-gold text-2xl sm:text-3xl tracking-wider">
+                        Saturday
+                    </p>
+                    <div class="flex items-center justify-center gap-4 my-3">
+                        <span class="h-[1px] w-12 bg-wedding-gold/40"></span>
+                        <span class="font-cinzel text-wedding-cream text-4xl sm:text-5xl font-bold">10</span>
+                        <span class="h-[1px] w-12 bg-wedding-gold/40"></span>
+                    </div>
+                    <p class="font-cinzel text-wedding-gold text-xl tracking-[0.3em] uppercase">October 2026</p>
+                </div>
+
+                <!-- Ceremony -->
+                <div class="w-full max-w-lg text-center mb-8 animate-fade-up" style="animation-delay: 0.4s;">
+                    <p class="font-lato text-xs tracking-[0.3em] uppercase text-wedding-gold/60 mb-3">The Ceremony</p>
+                    <p class="font-cinzel text-wedding-cream text-lg">4:00 PM</p>
+                    <p class="font-lato text-wedding-cream/70 text-sm mt-1">Catedral de Nuestra Señora de la Asunción de Veracruz</p>
+                </div>
+
+                <!-- Location with Map Link -->
+                <div class="w-full max-w-lg text-center mb-8 animate-fade-up" style="animation-delay: 0.6s;">
+                    <p class="font-lato text-xs tracking-[0.3em] uppercase text-wedding-gold/60 mb-3">Location</p>
+                    <p class="font-lato text-wedding-cream/70 text-sm leading-relaxed">
+                        Mario Molina 173, Centro. <br>Veracruz, México. 91700
+                    </p>
+                    <a href="https://maps.app.goo.gl/N6p8epEsSmUr2Z7L6" target="_blank" rel="noopener"
+                        class="inline-block mt-4 px-6 py-2 border border-wedding-gold/50 text-wedding-gold font-lato text-xs uppercase tracking-widest hover:bg-wedding-gold hover:text-black transition-all">
+                        📍 View on Google Maps
+                    </a>
+                </div>
+
+                <!-- Reception -->
+                <div class="w-full max-w-lg text-center mb-8 animate-fade-up" style="animation-delay: 0.5s;">
+                    <p class="font-lato text-xs tracking-[0.3em] uppercase text-wedding-gold/60 mb-3">The Reception</p>
+                    <p class="font-cinzel text-wedding-cream text-lg">6:00 PM</p>
+                    <p class="font-lato text-wedding-cream/70 text-sm mt-1">Hacienda Cielo Tisú</p>
+                </div>
+
+                <!-- Location with Map Link -->
+                <div class="w-full max-w-lg text-center mb-8 animate-fade-up" style="animation-delay: 0.6s;">
+                    <p class="font-lato text-xs tracking-[0.3em] uppercase text-wedding-gold/60 mb-3">Location</p>
+                    <p class="font-lato text-wedding-cream/70 text-sm leading-relaxed">Carretera a Antón Lizardo, Heroica Alvarado<br>Veracruz, México 95270
+                    </p>
+                    <a href="https://maps.app.goo.gl/g4UGfnVz5HrT4hBu5" target="_blank" rel="noopener"
+                        class="inline-block mt-4 px-6 py-2 border border-wedding-gold/50 text-wedding-gold font-lato text-xs uppercase tracking-widest hover:bg-wedding-gold hover:text-black transition-all">
+                        📍 View on Google Maps
+                    </a>
+                </div>
+
+                <!-- Dress Code -->
+                <div class="w-full max-w-lg text-center mb-8 py-6 border-y border-wedding-gold/10 animate-fade-up" style="animation-delay: 0.7s;">
+                    <p class="font-lato text-xs tracking-[0.3em] uppercase text-wedding-gold/60 mb-3">Dress Code</p>
+                    <p class="font-cinzel text-wedding-cream text-xl">Black Tie</p>
+                    <p class="font-lato text-wedding-cream/50 text-xs mt-2 italic">Formal evening attire requested</p>
+                </div>
+
+                <!-- Personal Message -->
+                <div class="w-full max-w-lg text-center mb-10 animate-fade-up" style="animation-delay: 0.8s;">
+                    <p class="font-lato text-xs tracking-[0.3em] uppercase text-wedding-gold/60 mb-4">A Note From Us</p>
+                    <p class="font-lato text-wedding-cream/70 text-sm leading-relaxed italic">
+                        "Every love story is beautiful, but ours is our favorite.<br>
+                        We would be honored to share this special day with you.<br>
+                        Your presence is the greatest gift we could ask for."
+                    </p>
+                    <p class="font-vibes text-wedding-gold text-2xl mt-4">Ana & Carlos</p>
+                </div>
+
+                <!-- RSVP Button -->
+                <div class="w-full max-w-lg text-center mb-12 animate-fade-up" style="animation-delay: 0.9s;">
+                    <p class="font-lato text-xs tracking-[0.3em] uppercase text-wedding-gold/60 mb-4">Please Respond By September 1, 2026</p>
+                    <a id="rsvp-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScX1xdMUBPKdIOYmLApywu1iDfxcm-njttRhVQQQYhmhG1vFA/viewform?usp=dialog" target="_blank" rel="noopener"
+                        class="inline-block w-full max-w-xs px-8 py-4 bg-wedding-gold text-black font-cinzel font-bold text-sm tracking-[0.2em] uppercase hover:bg-white transition-all active:scale-95">
+                        RSVP Now
+                    </a>
+                </div>
+
+                <!-- Footer -->
+                <div class="w-full max-w-lg text-center pb-8 animate-fade-up" style="animation-delay: 1s;">
+                    <div class="w-16 h-[1px] bg-wedding-gold/30 mx-auto mb-4"></div>
+                    <p class="font-lato text-wedding-cream/30 text-[10px] uppercase tracking-widest">
+                        Made with ❤️ for our favorite people
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Init Script -->
+    <script type="module" src="js/main.js"></script>
+    <script>
+        // Inline check for Mobile Class to show controls
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            document.getElementById('mobile-controls').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
