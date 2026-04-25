@@ -1,0 +1,32 @@
+/* 
+ * STATE MANAGEMENT 
+ * Overrides Tailwind utilities for section transitions
+ */
+
+/* Base state for all sections if not handled by Tailwind classes */
+section {
+    /* Ensure transitions work for opacity/transform */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* HIDDEN STATE (Default for non-active) */
+/* We can rely on Tailwind 'opacity-0 pointer-events-none' classes in HTML, 
+   OR enforce it here. Enforcing here ensures JS toggling works simply. */
+section:not(.active-section) {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+
+/* ACTIVE STATE */
+section.active-section {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 20 !important;
+}
+
+/* GAME SPECIFIC */
+canvas {
+    image-rendering: pixelated;
+    /* Essential for Retro Look */
+}
